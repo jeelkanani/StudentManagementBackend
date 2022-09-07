@@ -13,6 +13,11 @@ public class StudentController {
 
     @Autowired
     StudentRepository studentRepository;
+    
+    @GetMapping
+    public String displayWelcomeMessage(){
+        return "<center><h1>Welcome to the Spring Boot Security!!!!</h1></center>";
+    }
 
     // Get the list of all student
     @GetMapping("/listPatient")
