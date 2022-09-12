@@ -20,34 +20,34 @@ public class StudentController {
     }
 
     // Get the list of all student
-    @GetMapping("/listPatient")
+    @GetMapping("/liststudent")
     public List<Student> getAllStudents() 
     {
         return studentRepository.findAll();
     }
 
     // Get the student information
-    @GetMapping("/patient/{id}")
+    @GetMapping("/student/{id}")
     public Student getStudent(@PathVariable Integer id) {
         return studentRepository.findById(id).get();
     }
 
     // Delete the student
-    @DeleteMapping("/patient/{id}")
+    @DeleteMapping("/student/{id}")
     public List<Student> deleteStudent(@PathVariable Integer id) {
         studentRepository.delete(studentRepository.findById(id).get());
         return studentRepository.findAll();
     }
 
     // Add new student
-    @PostMapping("/patient")
+    @PostMapping("/student")
     public List<Student> addStudent(@RequestBody Student student) {
         studentRepository.save(student);
         return studentRepository.findAll();
     }
 
     // Update the student information
-    @PutMapping("/patient/{id}")
+    @PutMapping("/student/{id}")
     public List<Student> updateStudent(@RequestBody Student student, @PathVariable Integer id) {
         Student studentObj = studentRepository.findById(id).get();
         studentObj.setName(student.getName());
